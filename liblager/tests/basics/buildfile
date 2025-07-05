@@ -2,7 +2,18 @@ import libs = liblager%lib{lager}
 
 exe{driver}: {hxx ixx txx cxx}{**} $libs testscript{**}
 
-# Installed case.
+# Add the conforming preprocessor flag explicitly when building with MSVC.
+#
+# This option is supposed to be exported by liblager via cxx.export.poptions,
+# but in the installed case it doesn't seem to make it through to the test
+# driver. That leads to build failures under MSVC due to preprocessor
+# non-conformance.
+#
+# Rather than sink time into tracking down why the export is missing, we
+# apply the flag manually here to keep the smoke test building correctly.
+#
+# If we ever feel inclined to dig into this and fix it properly, then this
+# can later be removed.
 #
 if($cxx.id == 'msvc')
 {
