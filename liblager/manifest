@@ -1,0 +1,19 @@
+: 1
+name: liblager
+version: 0.1.1
+type: lib,binless
+language: c++
+project: lager
+summary: C++ library for value-oriented design
+license: MIT ; MIT License.
+package-description-file: PACKAGE-README.md
+url: https://sinusoid.es/lager
+doc-url: https://sinusoid.es/lager
+src-url: https://github.com/arximboldi/lager
+package-url: https://github.com/build2-packaging/lager
+package-email: packaging@build2.org ; Mailing list.
+depends: * build2 >= 0.17.0
+depends: * bpkg >= 0.17.0
+depends: libzug >= 0.1.1
+depends: libboost-hana >= 1.87.0
+depends: libboost-intrusive >= 1.87.0

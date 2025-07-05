@@ -1,14 +1,10 @@
-# lager - <SUMMARY>
+# lager - C++ library for value-oriented design
 
-This is a `build2` package repository for [`lager`](https://<UPSTREAM-URL>),
-a <SUMMARY-OF-FUNCTIONALITY>.
+This is a [`build2`](https://build2.org/) package repository for [`lager`](https://github.com/arximboldi/lager), a library to assist value-oriented design by implementing the unidirectional data-flow architecture.
 
-This file contains setup instructions and other details that are more
-appropriate for development rather than consumption. If you want to use
-`lager` in your `build2`-based project, then instead see the accompanying
-[`PACKAGE-README.md`](<PACKAGE>/PACKAGE-README.md) file.
+This file contains setup instructions and other details that are more appropriate for development rather than consumption. If you want to use [`lager`](https://github.com/arximboldi/lager) in your [`build2`](https://build2.org/)-based project, then instead see the accompanying [`PACKAGE-README.md`](liblager/PACKAGE-README.md) file.
 
-The development setup for `lager` uses the standard `bdep`-based workflow.
+The development setup for [`lager`](https://github.com/arximboldi/lager) uses the standard [`bdep`](https://build2.org/bdep/doc/bdep.xhtml)-based workflow.
 For example:
 
 ```
