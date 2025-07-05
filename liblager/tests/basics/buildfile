@@ -1,3 +1,10 @@
 import libs = liblager%lib{lager}
 
 exe{driver}: {hxx ixx txx cxx}{**} $libs testscript{**}
+
+# Installed case.
+#
+if($cxx.id == 'msvc')
+{
+  cxx.poptions += "/Zc:preprocessor"
+}
