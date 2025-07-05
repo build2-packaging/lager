@@ -1,0 +1,39 @@
+intf_libs = # Interface dependencies.
+import intf_libs += libzug%lib{zug}
+import intf_libs += libboost-hana%lib{boost_hana}
+import intf_libs += libboost-intrusive%lib{boost_intrusive}
+
+lib{lager}: {hxx ixx txx}{**} $intf_libs
+
+if($cxx.id == 'msvc')
+{
+  cxx.poptions += "/Zc:preprocessor"
+}
+
+# Export options.
+#
+out_pfx = [dir_path] $out_root/include/
+src_pfx = [dir_path] $src_root/include/
+
+lib{lager}:
+{
+  cxx.export.poptions = "-I$out_pfx" "-I$src_pfx"
+  cxx.export.libs = $intf_libs
+}
+
+if($cxx.id == 'msvc')
+{
+  lib{lager}:
+  {
+    cxx.export.poptions += "/Zc:preprocessor"
+  }
+}
+
+# Install into the lager/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{hxx ixx txx}{*}:
+{
+  install         = include/lager/
+  install.subdirs = true
+}
