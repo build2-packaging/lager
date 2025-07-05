@@ -5,6 +5,11 @@ import intf_libs += libboost-intrusive%lib{boost_intrusive}
 
 lib{lager}: {hxx ixx txx}{**} $intf_libs
 
+if($cxx.id == 'msvc')
+{
+  cxx.poptions += "/Zc:preprocessor"
+}
+
 # Export options.
 #
 out_pfx = [dir_path] $out_root/include/
@@ -14,6 +19,14 @@ lib{lager}:
 {
   cxx.export.poptions = "-I$out_pfx" "-I$src_pfx"
   cxx.export.libs = $intf_libs
+}
+
+if($cxx.id == 'msvc')
+{
+  lib{lager}:
+  {
+    cxx.export.poptions += "/Zc:preprocessor"
+  }
 }
 
 # Install into the lager/ subdirectory of, say, /usr/include/
